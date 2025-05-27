@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>中村喜一 - Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="#profile" class="nav-brand">KiichiNakamura</a>
+            <a href="#profile" class="nav-brand">中村喜一</a>
             <ul class="nav-links">
                 <li><a href="#profile" class="active-link">プロフィール</a></li>
                 <li><a href="#career">キャリア</a></li>
                 <li><a href="#products">プロダクト</a></li>
+                <li><a href="#links">リンク</a></li>
                 <li><a href="#hobbies">趣味</a></li>
             </ul>
             <div class="nav-toggler">
@@ -29,7 +30,7 @@
     <header id="profile" class="profile-header">
         <div class="container profile-container">
             <div class="profile-image-container">
-                <img src="https://via.placeholder.com/180" alt="中村喜一 プロフィール画像">
+                <img src="https://via.placeholder.com/150" alt="中村喜一 プロフィール画像">
             </div>
             <div class="profile-info">
                 <h1>中村喜一</h1>
@@ -51,23 +52,24 @@
         <section id="career" class="content-section">
             <div class="container">
                 <h2>キャリア</h2>
-                <div class="career-timeline">
-                    <div class="timeline-event">
-                        <div class="timeline-icon-container">
-                            <i class="fas fa-university timeline-icon"></i>
+                <div class="career-timeline-wrapper">
+                    <div class="career-event">
+                        <div class="career-event-dates">
+                            <span class="date-start">2023年4月</span>
+                            <span class="date-end">2027年3月</span>
                         </div>
-                        <div class="timeline-event-content">
-                            <div class="event-main-info">
-                                <span class="timeline-event-dates">2023年4月 - 2027年3月 (予定)</span>
-                                <h3 class="timeline-event-title">青山学院大学 (Aoyama Gakuin University) <span class="duration-tag">4年間</span></h3>
-                                <p class="timeline-event-description">社会情報学部社会情報学科 社会・情報コース</p>
-                            </div>
-                            <div class="sub-events-grid">
-                                <div class="sub-event-card">
+                        <div class="career-event-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="career-event-body">
+                            <h3 class="event-title">青山学院大学 (Aoyama Gakuin University) <span class="event-duration">4年間</span></h3>
+                            <p class="event-description">社会情報学部 社会情報学科<br>社会・情報コース</p>
+                            <div class="event-sub-cards">
+                                <div class="sub-card">
                                     <h4>宮治研究室</h4>
                                     <p>2025年4月</p>
                                 </div>
-                                <div class="sub-event-card">
+                                <div class="sub-card">
                                     <h4>体育会航空部</h4>
                                     <p>2023年4月</p>
                                 </div>
@@ -75,41 +77,44 @@
                         </div>
                     </div>
 
-                    <div class="timeline-event">
-                        <div class="timeline-icon-container">
-                            <i class="fas fa-building timeline-icon"></i>
+                    <div class="career-event">
+                        <div class="career-event-dates">
+                            <span class="date-start">2024年9月</span>
+                            <span class="date-end">現在</span>
                         </div>
-                        <div class="timeline-event-content">
-                             <div class="event-main-info">
-                                <span class="timeline-event-dates">2024年9月 - 現在</span>
-                                <h3 class="timeline-event-title">情報メディアセンター <span class="duration-tag current-tag">8ヶ月</span></h3>
-                                <p class="timeline-event-description">青山学院大学情報メディアセンターの学生スタッフとして</p>
-                            </div>
+                        <div class="career-event-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="career-event-body">
+                            <h3 class="event-title">情報メディアセンター <span class="event-duration current">8ヶ月</span></h3>
+                            <p class="event-description">青山学院大学情報メディアセンターの学生スタッフとして</p>
                         </div>
                     </div>
 
-                    <div class="timeline-event">
-                        <div class="timeline-icon-container">
-                             <i class="fas fa-graduation-cap timeline-icon"></i> {/* Changed icon */}
+                    <div class="career-event">
+                        <div class="career-event-dates">
+                            <span class="date-start">2025年2月</span>
+                            <span class="date-end">2025年3月</span>
                         </div>
-                        <div class="timeline-event-content">
-                            <div class="event-main-info">
-                                <span class="timeline-event-dates">2025年2月 - 2025年3月 (予定)</span>
-                                <h3 class="timeline-event-title">Regent's University London <span class="duration-tag">2ヶ月</span></h3>
-                                <p class="timeline-event-description">Regent's School of English</p>
-                            </div>
+                        <div class="career-event-icon">
+                            <i class="fas fa-plane-departure"></i>
+                        </div>
+                        <div class="career-event-body">
+                            <h3 class="event-title">Regent's University London <span class="event-duration">2ヶ月</span></h3>
+                            <p class="event-description">Regent's School of English</p>
                         </div>
                     </div>
-                     <div class="timeline-event">
-                        <div class="timeline-icon-container">
-                            <i class="fas fa-school timeline-icon"></i>
+                    <div class="career-event">
+                        <div class="career-event-dates">
+                            <span class="date-start">2020年4月</span>
+                            <span class="date-end">2023年3月</span>
                         </div>
-                        <div class="timeline-event-content">
-                             <div class="event-main-info">
-                                <span class="timeline-event-dates">2020年4月 - 2023年3月</span>
-                                <h3 class="timeline-event-title">東邦大学付属東邦高校</h3>
-                                <p class="timeline-event-description">卒業</p>
-                            </div>
+                        <div class="career-event-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <div class="career-event-body">
+                            <h3 class="event-title">東邦大学付属東邦高校 <span class="event-duration">3年間</span></h3>
+                            <p class="event-description">卒業</p>
                         </div>
                     </div>
                 </div>
@@ -120,31 +125,55 @@
             <div class="container">
                 <h2>プロダクト</h2>
                 <div class="product-grid">
-                    <div class="product-card">
-                        <img src="https://via.placeholder.com/300x200/0288D1/fff?text=Maclay+Rush" alt="Maclay Rush">
-                        <div class="product-card-content">
-                            <h3>Maclay Rush</h3>
-                            <p>新感覚音書籍探索ゲーム。Next.jsとFirebaseを使用し、チームで開発。</p>
-                            <span class="tech-tag">Next.js</span> <span class="tech-tag">Firebase</span>
+                    <a href="https://example.com/maclayrush" target="_blank" rel="noopener noreferrer" class="product-card-link">
+                        <div class="product-card">
+                            <img src="https://via.placeholder.com/300x180/0288D1/fff?text=Maclay+Rush" alt="Maclay Rush">
+                            <div class="product-card-content">
+                                <h3>Maclay Rush</h3>
+                                <p>新感覚音書籍探索ゲーム。Next.jsとFirebaseを使用し、チームで開発。</p>
+                                <div class="tech-tags-container">
+                                    <span class="tech-tag">Next.js</span> <span class="tech-tag">Firebase</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="product-card">
-                        <img src="https://via.placeholder.com/300x200/4CAF50/fff?text=OptimusMyPage" alt="OptimusMyPage">
-                        <div class="product-card-content">
-                            <h3>OptimusMyPage</h3>
-                            <p>マインクラフトの経済システムと連動するWebアプリ。ExpressとTailwindCSSでチーム開発。</p>
-                            <span class="tech-tag">Express</span> <span class="tech-tag">TailwindCSS</span>
+                    </a>
+                    <a href="https://example.com/optimusmypage" target="_blank" rel="noopener noreferrer" class="product-card-link">
+                        <div class="product-card">
+                            <img src="https://via.placeholder.com/300x180/4CAF50/fff?text=OptimusMyPage" alt="OptimusMyPage">
+                            <div class="product-card-content">
+                                <h3>OptimusMyPage</h3>
+                                <p>マインクラフトの経済システムと連動するWebアプリ。ExpressとTailwindCSSでチーム開発。</p>
+                                <div class="tech-tags-container">
+                                    <span class="tech-tag">Express</span> <span class="tech-tag">TailwindCSS</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="product-card">
-                        <img src="https://via.placeholder.com/300x200/FFC107/333?text=OptimusCMS" alt="OptimusCMS">
-                        <div class="product-card-content">
-                            <h3>OptimusCMS</h3>
-                            <p>個人で開発した自作CMS。Next.jsを使用。</p>
-                            <span class="tech-tag">Next.js</span>
+                    </a>
+                     <a href="https://example.com/optimuscms" target="_blank" rel="noopener noreferrer" class="product-card-link">
+                        <div class="product-card">
+                            <img src="https://via.placeholder.com/300x180/FFC107/333?text=OptimusCMS" alt="OptimusCMS">
+                            <div class="product-card-content">
+                                <h3>OptimusCMS</h3>
+                                <p>個人で開発した自作CMS。Next.jsを使用。</p>
+                                <div class="tech-tags-container">
+                                    <span class="tech-tag">Next.js</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
+            </div>
+        </section>
+
+        <section id="links" class="content-section">
+            <div class="container">
+                <h2>リンク</h2>
+                <ul class="links-list">
+                    <li><a href="https://github.com/kaicyou2532" target="_blank" rel="noopener noreferrer"><i class="fab fa-github icon-prefix"></i> GitHub</a></li>
+                    <li><a href="https://twitter.com/kaicyou2532" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter icon-prefix"></i> Twitter (X) @kaicyou2532</a></li>
+                    <li><a href="https://zenn.dev/yourusername" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt icon-prefix"></i> Zenn</a></li>
+                    <li><a href="https://qiita.com/yourusername" target="_blank" rel="noopener noreferrer"><i class="fas fa-laptop-code icon-prefix"></i> Qiita</a></li>
+                </ul>
             </div>
         </section>
 
@@ -152,26 +181,26 @@
             <div class="container">
                 <h2>趣味</h2>
                 <div class="hobby-grid">
-<!--                     <div class="hobby-card">
+                    <div class="hobby-card">
                         <i class="fas fa-gamepad hobby-icon"></i>
                         <h3>ゲーム</h3>
-                        <p>戦略ゲームやRPGが好きです。仲間と協力して目標を達成する過程に面白みを感じます。</p>
+                        <p>戦略ゲームやRPGが好きです。</p>
                     </div>
                     <div class="hobby-card">
                         <i class="fas fa-code hobby-icon"></i>
                         <h3>プログラミング</h3>
-                        <p>新しい技術を学んだり、アイデアを形にしたりするコーディングそのものが楽しいです。</p>
+                        <p>新しい技術を学び、アイデアを形にします。</p>
                     </div>
                     <div class="hobby-card">
                         <i class="fas fa-music hobby-icon"></i>
                         <h3>音楽鑑賞</h3>
-                        <p>ジャンル問わず様々な音楽を聴きます。特にライブに行くのが好きです。</p>
+                        <p>ジャンル問わず聴き、ライブにも行きます。</p>
                     </div>
                     <div class="hobby-card">
                         <i class="fas fa-hiking hobby-icon"></i>
                         <h3>自然散策</h3>
-                        <p>週末には公園や山に出かけてリフレッシュします。新しい景色を発見するのが好きです。</p>
-                    </div> -->
+                        <p>週末は公園や山でリフレッシュします。</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -197,7 +226,13 @@
                     e.preventDefault();
                     const targetElement = document.querySelector(this.getAttribute('href'));
                     if (targetElement) {
-                        targetElement.scrollIntoView({
+                        // Navbar height offset
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 10; // 10px additional offset
+
+                        window.scrollTo({
+                            top: offsetPosition,
                             behavior: 'smooth'
                         });
                     }
@@ -210,15 +245,17 @@
                 }
             });
         });
-
+        
         window.addEventListener('scroll', () => {
             let currentSectionId = '';
             const sections = document.querySelectorAll('header[id], section[id]');
             const navHeight = document.querySelector('.navbar').offsetHeight;
-            const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollThreshold = navHeight + 50; // Adjust threshold as needed
 
             sections.forEach(section => {
-                if (section.offsetTop <= scrollPosition + navHeight + 50 && (section.offsetTop + section.offsetHeight) > scrollPosition + navHeight + 50) {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                if (window.pageYOffset >= sectionTop - scrollThreshold && window.pageYOffset < sectionTop + sectionHeight - scrollThreshold) {
                      currentSectionId = section.id;
                 }
             });
@@ -229,9 +266,13 @@
                     link.classList.add('active-link');
                 }
             });
-            if (!currentSectionId && scrollPosition < sections[0].offsetHeight) {
-                 const firstLink = document.querySelector('.nav-links a[href="#profile"]');
-                 if (firstLink) firstLink.classList.add('active-link');
+            // If at the very top, activate profile link
+            if (window.pageYOffset < sections[0].offsetTop + sections[0].offsetHeight - scrollThreshold && !currentSectionId) {
+                 const profileLink = document.querySelector('.nav-links a[href="#profile"]');
+                 if (profileLink) {
+                    navLinkItems.forEach(link => link.classList.remove('active-link')); // Clear others
+                    profileLink.classList.add('active-link');
+                 }
             }
         });
     </script>
