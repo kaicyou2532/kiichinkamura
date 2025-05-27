@@ -1,50 +1,126 @@
 :root {
-    --primary-color: #4CAF50; /* Green */
-    --secondary-color: #2196F3; /* Blue */
+    --primary-color: #2196F3; /* Blue */
+    --secondary-color: #4CAF50; /* Green */
     --accent-color: #FFC107; /* Yellow */
-    --text-color-dark: #333;
-    --text-color-light: #fff;
-    --bg-color-light: #f8f8f8;
-    --bg-color-sections: #e0f2f7; /* Light Blue */
-    --border-color: #ddd;
+    --bg-light: #ffffff;
+    --bg-alt: #f4f7f6; /* Softer alternative background */
+    --text-dark: #333333;
+    --text-light: #ffffff;
+    --text-muted: #6c757d;
+    --border-color: #e0e0e0;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+
+    /* Color Palette for Sections (can be customized) */
+    --profile-bg: #e3f2fd; /* Light Blue */
+    --career-bg: #e8f5e9;  /* Light Green */
+    --products-bg: #fff3e0; /* Light Orange/Yellow */
+    --hobbies-bg: #f3e5f5;  /* Light Purple */
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-family: 'Poppins', sans-serif;
     margin: 0;
-    background-color: var(--bg-color-light);
-    color: var(--text-color-dark);
-    line-height: 1.6;
+    padding-top: 70px; /* Adjust if navbar height changes */
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.7;
+    font-weight: 300;
 }
 
 .container {
-    max-width: 960px;
+    width: 90%;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 15px;
 }
 
-header {
+/* Navbar */
+.navbar {
     background-color: var(--primary-color);
-    color: var(--text-color-light);
-    padding: 40px 20px;
+    color: var(--text-light);
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active-link { /* For JS-based active link highlighting */
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.nav-toggler {
+    display: none; /* Hidden on desktop */
+    cursor: pointer;
+}
+
+.nav-toggler span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-light);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Profile Header */
+.profile-header {
+    background-color: var(--profile-bg);
+    padding: 60px 0;
     text-align: center;
-    margin-bottom: 20px;
-    border-radius: 8px;
 }
 
 .profile-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
 }
 
 .profile-image-container {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid var(--accent-color);
+    border: 5px solid var(--accent-color);
+    box-shadow: var(--shadow);
 }
 
 .profile-image-container img {
@@ -53,148 +129,301 @@ header {
     object-fit: cover;
 }
 
-.profile-info {
-    text-align: center;
-}
-
 .profile-info h1 {
-    font-size: 2.5em;
+    font-size: 2.8em;
+    font-weight: 700;
     margin-top: 0;
     margin-bottom: 10px;
+    color: var(--primary-color);
 }
 
 .profile-info .subtitle {
     font-size: 1.2em;
-    color: #666;
-    margin-bottom: 15px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-weight: 400;
 }
 
 .profile-intro {
-    margin-bottom: 20px;
     font-size: 1.1em;
+    max-width: 600px;
+    margin: 0 auto 25px auto;
+    color: var(--text-dark);
 }
 
 .profile-details ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    text-align: left; /* Details aligned left even if profile is centered */
+    display: inline-block; /* Allows centering the ul itself if needed */
 }
 
 .profile-details ul li {
-    margin-bottom: 8px;
-    color: #555;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: var(--text-muted);
+}
+.profile-details ul li i { /* For Font Awesome Icons */
+    margin-right: 10px;
+    color: var(--secondary-color);
+    width: 20px; /* Consistent icon spacing */
+    text-align: center;
 }
 
 .profile-details ul li a {
-    color: var(--secondary-color);
+    color: var(--primary-color);
     text-decoration: none;
+    font-weight: 400;
 }
 .profile-details ul li a:hover {
     text-decoration: underline;
+    color: var(--secondary-color);
 }
 
 @media (min-width: 768px) {
-    header {
+    .profile-header {
         text-align: left;
     }
     .profile-section {
         flex-direction: row;
-        align-items: flex-start;
-        text-align: left;
+        align-items: center;
     }
     .profile-info {
-        text-align: left;
+        margin-left: 40px;
+    }
+    .profile-intro {
+        margin-left: 0;
+        margin-right: 0;
     }
 }
 
-h2 {
-    font-size: 1.8em;
-    color: var(--primary-color);
-    border-bottom: 3px solid var(--accent-color);
-    padding-bottom: 10px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-}
-
-section {
-    background-color: var(--bg-color-sections);
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
+/* General Content Section Styling */
+.content-section {
+    padding: 50px 0;
     margin-bottom: 30px;
-    font-size: 0.95em;
-    background-color: var(--bg-color-light);
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
 }
-
-th, td {
-    border: 1px solid var(--border-color);
-    padding: 12px 15px;
-    text-align: left;
+.content-section h2 {
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: 600;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
 }
-
-th {
+.content-section h2::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 4px;
     background-color: var(--accent-color);
-    color: var(--text-color-dark);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Specific Section Backgrounds */
+#career { background-color: var(--career-bg); }
+#products { background-color: var(--products-bg); }
+#hobbies { background-color: var(--hobbies-bg); }
+
+/* Career - Timeline */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.timeline::before { /* Vertical line */
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+.timeline-item {
+    margin-bottom: 30px;
+    position: relative;
+    padding-left: 50px; /* Space for date and line */
+}
+.timeline-date {
+    position: absolute;
+    left: -30px; /* Adjust to align with line or slightly offset */
+    top: 0;
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    padding: 6px 12px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 0.9em;
+    box-shadow: var(--shadow);
+}
+.timeline-content {
+    background-color: var(--bg-light);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--accent-color);
+}
+.timeline-content h3 {
+    margin-top: 0;
+    font-size: 1.4em;
+    color: var(--primary-color);
     font-weight: 600;
 }
-
-tr:nth-child(even) {
-    background-color: #f0f8ff; /* Light Alice Blue */
+.timeline-content p {
+    margin-bottom: 0;
+    font-size: 1em;
 }
 
-tr:hover {
-    background-color: #e0ffff; /* Light Cyan */
+@media (max-width: 600px) {
+    .timeline::before {
+        left: 10px;
+    }
+    .timeline-item {
+        padding-left: 35px;
+    }
+    .timeline-date {
+        left: -15px; /* Adjust for smaller screens */
+        font-size: 0.8em;
+    }
 }
 
-.connect-section {
-    text-align: center;
-}
 
-.connect-section a,
-.languages-tools-section .tool-icon {
+/* Products - Card Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+.product-card {
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.product-card h3 {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 15px 20px 10px;
+}
+.product-card p {
+    font-size: 0.95em;
+    color: var(--text-muted);
+    margin: 0 20px 15px;
+    flex-grow: 1; /* Allows p to take available space */
+}
+.tech-tag {
     display: inline-block;
-    margin: 5px;
-    padding: 10px 15px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: var(--text-color-light);
-    background-color: var(--secondary-color);
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    margin: 0 5px 15px 20px;
+    font-weight: 400;
 }
 
-.connect-section a:hover,
-.languages-tools-section .tool-icon:hover {
-    background-color: var(--primary-color);
-    transform: translateY(-2px);
+/* Hobbies - Card Grid */
+.hobby-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
 }
-
-.languages-tools-section {
+.hobby-card {
+    background-color: var(--bg-light);
+    padding: 25px;
+    border-radius: var(--border-radius);
     text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hobby-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.hobby-icon {
+    font-size: 3em; /* Adjust if using Font Awesome */
+    margin-bottom: 15px;
+    /* color is set inline in HTML for this example, or create classes */
+}
+.hobby-card h3 {
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+.hobby-card p {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    line-height: 1.6;
 }
 
-.languages-tools-section .tool-icon {
-    background-color: #ffeb3b; /* Bright Yellow */
-    color: var(--text-color-dark);
-    border: 1px solid #fdd835;
-}
-.languages-tools-section .tool-icon:hover {
-    background-color: #fdd835;
-}
-
+/* Footer */
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 30px 0;
     margin-top: 40px;
-    border-top: 1px solid var(--border-color);
+    background-color: var(--bg-alt);
+    color: var(--text-muted);
     font-size: 0.9em;
-    color: #777;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px; /* Adjust if navbar height changes */
+    }
+    .navbar {
+        padding: 10px 0;
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Match navbar height */
+        left: 0;
+        background-color: var(--primary-color);
+        padding: 10px 0;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+    .nav-toggler {
+        display: block;
+    }
+    .nav-toggler.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .nav-toggler.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .nav-toggler.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    .profile-info h1 { font-size: 2.2em; }
+    .profile-image-container { width: 150px; height: 150px;}
+    .content-section h2 { font-size: 1.8em; }
 }
