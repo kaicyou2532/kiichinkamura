@@ -1,63 +1,71 @@
 :root {
-    --primary-color: #2196F3; /* Blue */
-    --secondary-color: #4CAF50; /* Green */
-    --accent-color: #FFC107; /* Yellow */
-    --bg-light: #ffffff;
-    --bg-alt: #f4f7f6; /* Softer alternative background */
-    --text-dark: #333333;
-    --text-light: #ffffff;
-    --text-muted: #6c757d;
+    --primary-text-color: #333;
+    --secondary-text-color: #555;
+    --muted-text-color: #777;
+    --link-color: #007bff; /* Blue for links */
+    --link-hover-color: #0056b3;
+    --bg-color: #ffffff;
+    --section-bg-color: #f8f9fa; /* Light gray for section backgrounds */
     --border-color: #e0e0e0;
-    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    --border-radius: 8px;
+    --timeline-line-color: #d0d0d0;
+    --icon-bg-color: #4A5568; /* Darker gray for icon background, as in image */
+    --icon-color: #ffffff;
+    --card-bg-color: #ffffff;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --tag-bg-color: #e9ecef;
+    --tag-text-color: #495057;
+    --current-tag-bg: #28a745; /* Green for "current" tag */
+    --current-tag-text: #fff;
+    --sub-event-card-bg: #E3F2FD; /* Light blue for sub-event cards */
 
-    /* Color Palette for Sections (can be customized) */
-    --profile-bg: #e3f2fd; /* Light Blue */
-    --career-bg: #e8f5e9;  /* Light Green */
-    --products-bg: #fff3e0; /* Light Orange/Yellow */
-    --hobbies-bg: #f3e5f5;  /* Light Purple */
+    --navbar-height: 60px;
+    --font-family-main: 'Noto Sans JP', 'Poppins', sans-serif;
+    --border-radius: 6px;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-family-main);
     margin: 0;
-    padding-top: 70px; /* Adjust if navbar height changes */
-    background-color: var(--bg-light);
-    color: var(--text-dark);
+    padding-top: var(--navbar-height);
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
     line-height: 1.7;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .container {
     width: 90%;
-    max-width: 1100px;
+    max-width: 1000px; /* Slightly reduced max-width for a more compact look */
     margin: 0 auto;
     padding: 0 15px;
 }
 
 /* Navbar */
 .navbar {
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    padding: 15px 0;
+    background-color: var(--bg-color);
+    padding: 0; /* Adjusted padding */
+    height: var(--navbar-height);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+    display: flex; /* Added for vertical alignment */
+    align-items: center; /* Added for vertical alignment */
 }
 
 .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%; /* Ensure container inside navbar takes full width */
 }
 
 .nav-brand {
-    font-size: 1.8em;
+    font-size: 1.5em; /* Adjusted */
     font-weight: 700;
-    color: var(--text-light);
+    color: var(--primary-text-color);
     text-decoration: none;
 }
 
@@ -69,387 +77,277 @@ body {
 }
 
 .nav-links li {
-    margin-left: 25px;
+    margin-left: 20px; /* Adjusted */
 }
 
 .nav-links a {
-    color: var(--text-light);
+    color: var(--secondary-text-color);
     text-decoration: none;
-    font-weight: 400;
-    font-size: 1em;
-    padding-bottom: 5px; /* space for potential border */
-    border-bottom: 3px solid transparent; /* Initial transparent border */
+    font-weight: 500; /* Slightly bolder */
+    font-size: 0.95em;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
     transition: color 0.3s ease, border-bottom-color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--accent-color);
+    color: var(--link-color);
 }
 
 .nav-links a.active-link {
-    color: var(--accent-color);
-    font-weight: 600;
-    border-bottom-color: var(--accent-color); /* Highlight active link */
+    color: var(--link-color);
+    border-bottom-color: var(--link-color);
 }
 
-.nav-toggler {
-    display: none;
-    cursor: pointer;
-}
-
-.nav-toggler span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: var(--text-light);
-    margin: 5px 0;
-    transition: all 0.3s ease;
-}
+.nav-toggler { display: none; cursor: pointer; }
+.nav-toggler span { display: block; width: 22px; height: 2px; background-color: var(--primary-text-color); margin: 5px 0; transition: all 0.3s ease;}
 
 /* Profile Header */
 .profile-header {
-    background-color: var(--profile-bg);
-    padding: 60px 0;
+    background-color: var(--bg-color); /* Cleaner look */
+    padding: 50px 0;
     text-align: center;
-    /* min-height: calc(100vh - 70px); Optional: make it full viewport height minus navbar */
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: center; */
 }
-
-.profile-section {
+.profile-container { /* For better control if needed */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
 }
-
 .profile-image-container {
-    width: 200px;
-    height: 200px;
+    width: 150px; /* Adjusted */
+    height: 150px;
     border-radius: 50%;
     overflow: hidden;
-    border: 5px solid var(--accent-color);
-    box-shadow: var(--shadow);
+    border: 4px solid var(--border-color); /* Subtle border */
 }
+.profile-image-container img { width: 100%; height: 100%; object-fit: cover; }
 
-.profile-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+.profile-info h1 { font-size: 2.2em; font-weight: 700; margin-top: 0; margin-bottom: 5px; color: var(--primary-text-color); }
+.profile-info .subtitle { font-size: 1em; color: var(--muted-text-color); margin-bottom: 15px; font-weight: 400; }
+.profile-intro { font-size: 1em; max-width: 550px; margin: 0 auto 20px auto; color: var(--secondary-text-color); }
 
-.profile-info h1 {
-    font-size: 2.8em;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: var(--primary-color);
-}
-
-.profile-info .subtitle {
-    font-size: 1.2em;
-    color: var(--text-muted);
-    margin-bottom: 20px;
-    font-weight: 400;
-}
-
-.profile-intro {
-    font-size: 1.1em;
-    max-width: 600px;
-    margin: 0 auto 25px auto;
-    color: var(--text-dark);
-}
-
-.profile-details ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: left;
-    display: inline-block;
-}
-
-.profile-details ul li {
-    margin-bottom: 10px;
-    font-size: 1em;
-    color: var(--text-muted);
-}
-.profile-details ul li i {
-    margin-right: 10px;
-    color: var(--secondary-color);
-    width: 20px;
-    text-align: center;
-}
-
-.profile-details ul li a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 400;
-}
-.profile-details ul li a:hover {
-    text-decoration: underline;
-    color: var(--secondary-color);
-}
+.profile-details ul { list-style: none; padding: 0; margin: 0; text-align: left; display: inline-block; }
+.profile-details ul li { margin-bottom: 8px; font-size: 0.95em; color: var(--secondary-text-color); display: flex; align-items: center;}
+.icon-prefix { margin-right: 10px; color: var(--link-color); width: 18px; text-align: center; }
+.profile-details ul li a { color: var(--link-color); text-decoration: none; font-weight: 500; }
+.profile-details ul li a:hover { text-decoration: underline; color: var(--link-hover-color); }
 
 @media (min-width: 768px) {
-    .profile-header {
-        text-align: left;
-        /* display: flex; */
-        /* align-items: center; */
-    }
-    .profile-section {
-        flex-direction: row;
-        /* align-items: center; already there */
-    }
-    .profile-info {
-        margin-left: 40px;
-    }
-    .profile-intro {
-        margin-left: 0;
-        margin-right: 0;
-    }
+    .profile-header { text-align: left; padding: 60px 0; }
+    .profile-container { flex-direction: row; align-items: flex-start; text-align: left;}
+    .profile-info { margin-left: 30px; text-align: left;}
+    .profile-intro { margin-left: 0; }
 }
 
-/* Main content area general styling, ensures it's within the .container width */
-.main-content-area {
-    /* The .container class already handles width and centering. */
-    /* This class is mostly for semantic grouping if needed later. */
-}
-
+/* Main Content Area */
+.main-content-area { /* Wrapper for sections, if needed */ }
 
 /* General Content Section Styling */
 .content-section {
-    padding: 50px 20px; /* Added horizontal padding to sections */
-    margin-bottom: 30px;
-    border-radius: var(--border-radius);
-    /* Background colors are applied via ID selectors */
+    padding: 50px 0; /* Vertical padding */
+    background-color: var(--bg-color); /* Default background */
 }
+.content-section:nth-of-type(odd) { /* Alternate section background */
+    background-color: var(--section-bg-color);
+}
+#profile { background-color: var(--bg-color); } /* Profile has its own styling */
+
+
 .content-section h2 {
     text-align: center;
-    font-size: 2.2em;
-    font-weight: 600;
+    font-size: 1.8em; /* Adjusted */
+    font-weight: 700;
     margin-bottom: 40px;
     position: relative;
-    padding-bottom: 15px;
-    color: var(--text-dark); /* Ensure heading color is consistent */
+    padding-bottom: 10px;
+    color: var(--primary-text-color);
 }
 .content-section h2::after {
-    content: '';
-    display: block;
-    width: 70px;
-    height: 4px;
-    background-color: var(--accent-color);
-    margin: 10px auto 0;
-    border-radius: 2px;
+    content: ''; display: block; width: 50px; height: 3px;
+    background-color: var(--link-color); margin: 8px auto 0; border-radius: 2px;
 }
 
-/* Specific Section Backgrounds */
-#career { background-color: var(--career-bg); }
-#products { background-color: var(--products-bg); }
-#hobbies { background-color: var(--hobbies-bg); }
-
-/* Career - Timeline */
-.timeline {
+/* Career Timeline - New Design */
+.career-timeline {
     position: relative;
-    max-width: 800px;
+    max-width: 800px; /* As per previous design */
     margin: 0 auto;
-    padding: 20px 0; /* Added some padding */
+    padding-left: 30px; /* Space for the line and icons */
 }
-.timeline::before {
+.career-timeline::before { /* The main vertical line */
     content: '';
     position: absolute;
-    left: 20px;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background-color: var(--primary-color);
-    border-radius: 2px;
+    left: 9px; /* Aligns with center of icon */
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background-color: var(--timeline-line-color);
 }
-.timeline-item {
-    margin-bottom: 30px;
+
+.timeline-event {
     position: relative;
-    padding-left: 50px;
+    margin-bottom: 30px;
+    padding-left: 35px; /* Space from icon to content */
 }
-.timeline-date {
+
+.timeline-icon-container {
     position: absolute;
-    left: -30px;
+    left: -11px; /* (Icon width / 2) - (line width / 2) for centering on line. Adjust if icon size changes */
     top: 0;
-    background-color: var(--secondary-color);
-    color: var(--text-light);
-    padding: 6px 12px;
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    font-size: 0.9em;
-    box-shadow: var(--shadow);
-    z-index: 1; /* Ensure date is above the line */
-}
-.timeline-content {
-    background-color: var(--bg-light);
-    padding: 20px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    border-left: 4px solid var(--accent-color);
-}
-.timeline-content h3 {
-    margin-top: 0;
-    font-size: 1.4em;
-    color: var(--primary-color);
-    font-weight: 600;
-}
-.timeline-content p {
-    margin-bottom: 0;
-    font-size: 1em;
-}
-
-@media (max-width: 600px) {
-    .timeline::before {
-        left: 10px;
-    }
-    .timeline-item {
-        padding-left: 35px;
-    }
-    .timeline-date {
-        left: -15px;
-        font-size: 0.8em;
-    }
-    .content-section {
-        padding: 40px 15px; /* Adjust padding for smaller screens */
-    }
-}
-
-
-/* Products - Card Grid */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly adjusted minmax */
-    gap: 25px;
-}
-.product-card {
-    background-color: var(--bg-light);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 40px; /* Container for icon */
+    height: 40px;
+    background-color: var(--icon-bg-color);
+    border-radius: 50%;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid var(--bg-color); /* Creates a "cutout" effect for the icon on the line */
+    z-index: 1;
 }
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-.product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-.product-card h3 {
-    font-size: 1.5em;
-    font-weight: 600;
-    color: var(--primary-color);
-    margin: 15px 20px 10px;
-}
-.product-card p {
-    font-size: 0.95em;
-    color: var(--text-muted);
-    margin: 0 20px 15px;
-    flex-grow: 1;
-}
-.tech-tag {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: var(--text-dark);
-    padding: 4px 10px;
-    border-radius: 15px;
-    font-size: 0.8em;
-    margin: 0 5px 15px 20px;
-    font-weight: 400;
+.timeline-icon {
+    color: var(--icon-color);
+    font-size: 1.1em;
 }
 
-/* Hobbies - Card Grid */
-.hobby-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-}
-.hobby-card {
-    background-color: var(--bg-light);
-    padding: 25px;
+.timeline-event-content {
+    background-color: var(--card-bg-color); /* Can be transparent if section has bg */
+    padding: 5px 0 5px 15px; /* Minimal padding, content itself has margins */
     border-radius: var(--border-radius);
-    text-align: center;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Removed box-shadow from here to make it cleaner, can be added back */
 }
-.hobby-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+.event-main-info {
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--card-bg-color);
+    box-shadow: var(--card-shadow);
 }
-.hobby-icon {
-    font-size: 3em;
-    margin-bottom: 15px;
+
+.timeline-event-dates {
+    display: block;
+    font-size: 0.85em;
+    color: var(--muted-text-color);
+    margin-bottom: 5px;
 }
-.hobby-card h3 {
-    font-size: 1.4em;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: var(--secondary-color);
+.timeline-event-title {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: var(--primary-text-color);
+    margin: 0 0 5px 0;
 }
-.hobby-card p {
-    font-size: 0.9em;
-    color: var(--text-muted);
-    line-height: 1.6;
+.duration-tag {
+    display: inline-block;
+    background-color: var(--tag-bg-color);
+    color: var(--tag-text-color);
+    padding: 2px 8px;
+    border-radius: 12px; /* Pill shape */
+    font-size: 0.75em;
+    font-weight: 500;
+    margin-left: 8px;
+    vertical-align: middle;
 }
+.current-tag {
+    background-color: var(--current-tag-bg);
+    color: var(--current-tag-text);
+}
+.timeline-event-description {
+    font-size: 0.95em;
+    color: var(--secondary-text-color);
+    margin-bottom: 0;
+}
+
+.sub-events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+.sub-event-card {
+    background-color: var(--sub-event-card-bg);
+    padding: 12px 15px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.sub-event-card h4 {
+    font-size: 1em;
+    font-weight: 700;
+    color: var(--primary-text-color);
+    margin: 0 0 5px 0;
+}
+.sub-event-card p {
+    font-size: 0.85em;
+    color: var(--secondary-text-color);
+    margin: 0;
+}
+
+
+/* Products - Card Grid (Adjusted for new theme) */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+.product-card {
+    background-color: var(--card-bg-color); border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow); overflow: hidden; display: flex; flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.product-card:hover { transform: translateY(-4px); box-shadow: 0 5px 12px rgba(0,0,0,0.1); }
+.product-card img { width: 100%; height: 180px; object-fit: cover; } /* Adjusted height */
+.product-card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+.product-card-content h3 { font-size: 1.25em; font-weight: 700; color: var(--primary-text-color); margin: 0 0 10px; }
+.product-card-content p { font-size: 0.9em; color: var(--secondary-text-color); margin: 0 0 15px; flex-grow: 1; }
+.tech-tag {
+    display: inline-block; background-color: var(--tag-bg-color); color: var(--tag-text-color);
+    padding: 3px 10px; border-radius: 12px; font-size: 0.75em; font-weight: 500; margin-right: 5px; margin-bottom: 5px;
+}
+
+/* Hobbies - Card Grid (Adjusted for new theme) */
+.hobby-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
+.hobby-card {
+    background-color: var(--card-bg-color); padding: 20px; border-radius: var(--border-radius); text-align: center;
+    box-shadow: var(--card-shadow); transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hobby-card:hover { transform: translateY(-4px); box-shadow: 0 5px 12px rgba(0,0,0,0.1); }
+.hobby-icon { font-size: 2.5em; margin-bottom: 15px; color: var(--link-color); }
+.hobby-card h3 { font-size: 1.15em; font-weight: 700; margin-bottom: 8px; color: var(--primary-text-color); }
+.hobby-card p { font-size: 0.85em; color: var(--secondary-text-color); line-height: 1.6; }
 
 /* Footer */
 footer {
-    text-align: center;
-    padding: 30px 0;
-    margin-top: 40px;
-    background-color: var(--bg-alt);
-    color: var(--text-muted);
-    font-size: 0.9em;
-    border-top: 1px solid var(--border-color);
+    text-align: center; padding: 25px 0; margin-top: 30px;
+    background-color: var(--section-bg-color); color: var(--muted-text-color);
+    font-size: 0.9em; border-top: 1px solid var(--border-color);
 }
 
 /* Mobile Navigation */
 @media (max-width: 768px) {
-    body {
-        padding-top: 60px;
-    }
-    .navbar {
-        padding: 10px 0;
-    }
+    body { padding-top: var(--navbar-height); }
+    .navbar { padding: 0; } /* Let container handle padding */
     .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 60px; /* Match navbar height */
-        left: 0;
-        background-color: var(--primary-color);
-        padding: 10px 0;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1); /* Add shadow to dropdown */
+        display: none; flex-direction: column; width: 100%;
+        position: absolute; top: var(--navbar-height); left: 0;
+        background-color: var(--bg-color); padding: 10px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     }
-    .nav-links.active {
-        display: flex;
-    }
-    .nav-links li {
-        margin: 10px 0;
-        text-align: center;
-    }
-    .nav-toggler {
-        display: block;
-    }
-    .nav-toggler.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    .nav-toggler.active span:nth-child(2) {
-        opacity: 0;
-    }
-    .nav-toggler.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
-    }
+    .nav-links.active { display: flex; }
+    .nav-links li { margin: 10px 0; text-align: center; width: 100%; }
+    .nav-links a { display: block; padding: 10px 0; width: 100%; border-bottom: none;}
+    .nav-links a.active-link { background-color: var(--section-bg-color); border-bottom: none; }
+    .nav-toggler { display: block; padding-right: 15px; /* Ensure it's clickable */}
+    .nav-toggler.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+    .nav-toggler.active span:nth-child(2) { opacity: 0; }
+    .nav-toggler.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-    .profile-info h1 { font-size: 2.2em; }
-    .profile-image-container { width: 150px; height: 150px;}
-    .content-section h2 { font-size: 1.8em; }
+    .profile-header { padding: 40px 0; }
+    .profile-container { gap: 20px; }
+    .profile-image-container { width: 120px; height: 120px; }
+    .profile-info h1 { font-size: 1.8em; }
+    .profile-info .subtitle {font-size: 0.9em;}
+    .profile-intro {font-size: 0.95em;}
+
+    .content-section h2 { font-size: 1.6em; margin-bottom: 30px; }
+    .career-timeline { padding-left: 20px; } /* Adjust for mobile */
+    .timeline-event { padding-left: 25px; }
+    .timeline-icon-container { left: -15px; width: 30px; height: 30px;} /* Smaller icon on mobile */
+    .timeline-icon { font-size: 0.9em; }
+    .timeline-event-title { font-size: 1.1em; }
+    .sub-events-grid { grid-template-columns: 1fr; } /* Stack sub-events on mobile */
 }
