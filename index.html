@@ -12,7 +12,7 @@
         <div class="container">
             <a href="#" class="nav-brand">中村喜一</a>
             <ul class="nav-links">
-                <li><a href="#profile">プロフィール</a></li>
+                <li><a href="#profile" class="active-link">プロフィール</a></li> {/* 初期アクティブ */}
                 <li><a href="#career">キャリア</a></li>
                 <li><a href="#products">プロダクト</a></li>
                 <li><a href="#hobbies">趣味</a></li>
@@ -30,7 +30,7 @@
             <div class="profile-section">
                 <div class="profile-image-container">
                     <img src="https://via.placeholder.com/200" alt="中村喜一 プロフィール画像">
-                    </div>
+                </div>
                 <div class="profile-info">
                     <h1>中村喜一</h1>
                     <p class="subtitle">(Nakamura Kiichi / he/him)</p>
@@ -41,14 +41,14 @@
                             <li><i class="fas fa-map-marker-alt"></i> 神奈川県</li>
                             <li><i class="fas fa-envelope"></i> <a href="mailto:example@example.com">example@example.com</a></li>
                             <li><i class="fab fa-github"></i> <a href="https://github.com/kaicyou2532" target="_blank">GitHub</a></li>
-                            </ul>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="container">
+    <main class="container main-content-area"> {/* mainにもコンテナクラスを追加 */}
         <section id="career" class="content-section">
             <h2>キャリア</h2>
             <div class="timeline">
@@ -122,10 +122,14 @@
         <section id="hobbies" class="content-section">
             <h2>趣味</h2>
             <div class="hobby-grid">
-                
-<!--                 <div class="hobby-card">
+                <div class="hobby-card">
+                    <i class="fas fa-gamepad hobby-icon" style="color: #FF5722;"></i>
+                    <h3>ゲーム</h3>
+                    <p>戦略ゲームやRPGが好きです。仲間と協力して目標を達成する過程に面白みを感じます。</p>
+                </div>
+                <div class="hobby-card">
                     <i class="fas fa-code hobby-icon" style="color: #00BCD4;"></i>
-                    <h3></h3>
+                    <h3>プログラミング</h3>
                     <p>新しい技術を学んだり、アイデアを形にしたりするコーディングそのものが楽しいです。</p>
                 </div>
                 <div class="hobby-card">
@@ -136,7 +140,7 @@
                 <div class="hobby-card">
                     <i class="fas fa-hiking hobby-icon" style="color: #4CAF50;"></i>
                     <h3>自然散策</h3>
-                    <p>週末には公園や山に出かけてリフレッシュします。新しい景色を発見するのが好きです。</p> -->
+                    <p>週末には公園や山に出かけてリフレッシュします。新しい景色を発見するのが好きです。</p>
                 </div>
             </div>
         </section>
@@ -147,27 +151,74 @@
     </footer>
 
     <script>
-        // Simple Navbar Toggle for mobile
         const navToggler = document.querySelector('.nav-toggler');
         const navLinks = document.querySelector('.nav-links');
+        const navLinkItems = document.querySelectorAll('.nav-links a');
 
         navToggler.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             navToggler.classList.toggle('active');
         });
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        navLinkItems.forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+                // Prevent default if it's a real anchor link for SPA behavior
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Remove active class from all nav links
+                navLinkItems.forEach(link => {
+                    link.classList.remove('active-link');
                 });
+                // Add active class to the clicked nav link
+                this.classList.add('active-link');
+
+                // Close mobile nav if open
                 if (navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
                     navToggler.classList.remove('active');
                 }
             });
+        });
+
+        // Optional: Highlight nav link on scroll (more advanced)
+        // This is a simple version, for robust implementation Intersection Observer API is recommended
+        window.addEventListener('scroll', () => {
+            let currentSectionId = '';
+            const sections = document.querySelectorAll('section[id]'); // or header[id], section[id]
+            const headerProfile = document.querySelector('#profile'); // include profile header
+
+            const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Check profile header first
+            if (headerProfile.offsetTop <= scrollPosition + 80 && (headerProfile.offsetTop + headerProfile.offsetHeight) > scrollPosition + 80) {
+                 currentSectionId = 'profile';
+            } else {
+                sections.forEach(section => {
+                    if (section.offsetTop <= scrollPosition + 80 && (section.offsetTop + section.offsetHeight) > scrollPosition + 80) {
+                         currentSectionId = section.id;
+                    }
+                });
+            }
+
+
+            navLinkItems.forEach(link => {
+                link.classList.remove('active-link');
+                if (link.getAttribute('href') === `#${currentSectionId}`) {
+                    link.classList.add('active-link');
+                }
+            });
+             // If no section is active (e.g., at the very top or bottom outside sections),
+             // you might want to ensure the first link or no link is active.
+             // For simplicity, if currentSectionId is empty, we might default to #profile or remove all active.
+            if (!currentSectionId && scrollPosition < headerProfile.offsetHeight) {
+                 const profileLink = document.querySelector('.nav-links a[href="#profile"]');
+                 if (profileLink) profileLink.classList.add('active-link');
+            }
         });
     </script>
 </body>
