@@ -5,25 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>中村喜一 - Portfolio</title>
     <link rel="stylesheet" href="style.css">
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    </head>
 <body>
-    <header>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="nav-brand">中村喜一</a>
+            <ul class="nav-links">
+                <li><a href="#profile">プロフィール</a></li>
+                <li><a href="#career">キャリア</a></li>
+                <li><a href="#products">プロダクト</a></li>
+                <li><a href="#hobbies">趣味</a></li>
+            </ul>
+            <div class="nav-toggler">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <header id="profile" class="profile-header">
         <div class="container">
             <div class="profile-section">
                 <div class="profile-image-container">
-                    <img src="https://via.placeholder.com/150" alt="中村喜一 プロフィール画像">
+                    <img src="https://via.placeholder.com/200" alt="中村喜一 プロフィール画像">
                     </div>
                 <div class="profile-info">
-                    <h1>Hi I'm 中村喜一</h1>
-                    <p class="subtitle">中村喜一 (he/him)</p>
-                    <p class="profile-intro">I'm currently learning GO, SQL, Python</p>
+                    <h1>中村喜一</h1>
+                    <p class="subtitle">(Nakamura Kiichi / he/him)</p>
+                    <p class="profile-intro">新しい技術やデザインを探求することが好きです。<br>現在はGo言語、SQL、Pythonを中心に学んでいます。</p>
                     <div class="profile-details">
                         <ul>
                             <li><i class="fas fa-university"></i> 青山学院大学社会情報学部</li>
                             <li><i class="fas fa-map-marker-alt"></i> 神奈川県</li>
-                            <li><i class="fas fa-link"></i> <a href="https://twitter.com/kaicyou2532" target="_blank">https://twitter.com/kaicyou2532</a></li>
-                            <li><i class="fab fa-twitter"></i> <a href="https://twitter.com/kaicyou2532" target="_blank">X @kaicyou2532</a></li>
-                            <li><i class="fab fa-twitter"></i> <a href="https://twitter.com/optimu_servers" target="_blank">X @optimu_servers</a></li>
+                            <li><i class="fas fa-envelope"></i> <a href="mailto:example@example.com">example@example.com</a></li>
+                            <li><i class="fab fa-github"></i> <a href="https://github.com/kaicyou2532" target="_blank">GitHub</a></li>
                             </ul>
                     </div>
                 </div>
@@ -31,162 +48,127 @@
         </div>
     </header>
 
-    <div class="container">
-        <section id="career">
-            <h2>Career</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>StartDate</th>
-                        <th>School/Career</th>
-                        <th>Remarks</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>2020.4</td>
-                        <td>東邦大学付属東邦高校</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2023.4</td>
-                        <td>青山学院大学社会情報学部</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2024.9</td>
-                        <td>青山学院大学情報メディアセンター</td>
-                        <td>学生スタッフとしてアルバイト</td>
-                    </tr>
-                    <tr>
-                        <td>2025.2</td>
-                        <td>Regent's University London</td>
-                        <td>イギリス、ロンドンに留学として</td>
-                    </tr>
-                </tbody>
-            </table>
+    <main class="container">
+        <section id="career" class="content-section">
+            <h2>キャリア</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2020.4</div>
+                    <div class="timeline-content">
+                        <h3>東邦大学付属東邦高校</h3>
+                        <p>入学</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023.4</div>
+                    <div class="timeline-content">
+                        <h3>青山学院大学 社会情報学部</h3>
+                        <p>入学</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024.9 - 現在</div>
+                    <div class="timeline-content">
+                        <h3>青山学院大学 情報メディアセンター</h3>
+                        <p>学生スタッフとしてアルバイト</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025.2 (予定)</div>
+                    <div class="timeline-content">
+                        <h3>Regent's University London</h3>
+                        <p>イギリス、ロンドンへ留学</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="awards">
-            <h2>Awards</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Event</th>
-                        <th>Award</th>
-                        <th>Work</th>
-                        <th>Post</th>
-                        <th>Remarks</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>2024.8.25</td>
-                        <td>サポーターズ 技育キャンプハッカソン</td>
-                        <td>優秀賞</td>
-                        <td>Maclay Rush</td>
-                        <td>インフラ</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2024.9.15</td>
-                        <td>サポーターズ 技育キャンプハッカソン</td>
-                        <td>努力賞</td>
-                        <td>文化祭サイト</td>
-                        <td>インフラ</td>
-                        <td>技育博2024vol.3 出品</td>
-                    </tr>
-                    <tr>
-                        <td>2024.11.24</td>
-                        <td>Intelligent Water Rocket Competition 2024</td>
-                        <td>総合準優勝</td>
-                        <td>AI&MCommons</td>
-                        <td>全体設計/電気系統制作</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2025.2.24</td>
-                        <td>サポーターズ 技育キャンプハッカソン</td>
-                        <td>努力賞</td>
-                        <td>Traubling</td>
-                        <td>PM/フロント/バックエンド</td>
-                        <td>技育博2025vol.1 出品</td>
-                    </tr>
-                </tbody>
-            </table>
+        <section id="products" class="content-section">
+            <h2>プロダクト</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200/FFC107/333?text=Maclay+Rush" alt="Maclay Rush">
+                    <h3>Maclay Rush</h3>
+                    <p>新感覚音書籍探索ゲーム。Next.jsとFirebaseを使用し、チームで開発。</p>
+                    <span class="tech-tag">Next.js</span> <span class="tech-tag">Firebase</span>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200/8BC34A/fff?text=OptimusMyPage" alt="OptimusMyPage">
+                    <h3>OptimusMyPage</h3>
+                    <p>マインクラフトの経済システムと連動するWebアプリ。ExpressとTailwindCSSでチーム開発。</p>
+                    <span class="tech-tag">Express</span> <span class="tech-tag">TailwindCSS</span>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200/2196F3/fff?text=OptimusCMS" alt="OptimusCMS">
+                    <h3>OptimusCMS</h3>
+                    <p>個人で開発した自作CMS。Next.jsを使用。</p>
+                    <span class="tech-tag">Next.js</span>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200/E91E63/fff?text=Traubling" alt="Traubling">
+                    <h3>Traubling</h3>
+                    <p>旅行トラブル共有サイト。Next.jsとPostgreSQLを使用し、チームでPM、フロント、バックエンドを担当。</p>
+                    <span class="tech-tag">Next.js</span> <span class="tech-tag">PostgreSQL</span>
+                </div>
+                 <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200/673AB7/fff?text=OptimusBLOG" alt="OptimusBLOG">
+                    <h3>OptimusBLOG</h3>
+                    <p>個人で開発したブログ。Next.jsとPostgreSQLを使用。</p>
+                    <span class="tech-tag">Next.js</span> <span class="tech-tag">PostgreSQL</span>
+                </div>
+            </div>
         </section>
 
-        <section id="works">
-            <h2>Works</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>About</th>
-                        <th>Techs</th>
-                        <th>Members</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Maclay Rush</td>
-                        <td>新感覚音書籍探索ゲーム</td>
-                        <td>Next.js, Firebase</td>
-                        <td>チーム</td>
-                    </tr>
-                    <tr>
-                        <td>OptimusMyPage</td>
-                        <td>マインクラフトの経済システムと連動するWebアプリ</td>
-                        <td>Express, TailwindCSS</td>
-                        <td>チーム</td>
-                    </tr>
-                    <tr>
-                        <td>OptimusCMS</td>
-                        <td>自作CMS</td>
-                        <td>Next.js</td>
-                        <td>個人</td>
-                    </tr>
-                    <tr>
-                        <td>Traubling</td>
-                        <td>旅行トラブル共有サイト</td>
-                        <td>Next.js, PostgreSQL</td>
-                        <td>チーム</td>
-                    </tr>
-                    <tr>
-                        <td>OptimusBLOG</td>
-                        <td>ブログ</td>
-                        <td>Next.js, PostgreSQL</td>
-                        <td>個人</td>
-                    </tr>
-                </tbody>
-            </table>
+        <section id="hobbies" class="content-section">
+            <h2>趣味</h2>
+            <div class="hobby-grid">
+                
+<!--                 <div class="hobby-card">
+                    <i class="fas fa-code hobby-icon" style="color: #00BCD4;"></i>
+                    <h3></h3>
+                    <p>新しい技術を学んだり、アイデアを形にしたりするコーディングそのものが楽しいです。</p>
+                </div>
+                <div class="hobby-card">
+                    <i class="fas fa-music hobby-icon" style="color: #9C27B0;"></i>
+                    <h3>音楽鑑賞</h3>
+                    <p>ジャンル問わず様々な音楽を聴きます。特にライブに行くのが好きです。</p>
+                </div>
+                <div class="hobby-card">
+                    <i class="fas fa-hiking hobby-icon" style="color: #4CAF50;"></i>
+                    <h3>自然散策</h3>
+                    <p>週末には公園や山に出かけてリフレッシュします。新しい景色を発見するのが好きです。</p> -->
+                </div>
+            </div>
         </section>
-
-        <section id="connect" class="connect-section">
-            <h2>Connect with me</h2>
-            <a href="https://twitter.com/kaicyou2532" target="_blank">
-                Twitter
-            </a>
-        </section>
-
-        <section id="tools" class="languages-tools-section">
-            <h2>Languages and Tools</h2>
-            <span class="tool-icon">Arduino</span>
-            <span class="tool-icon">HTML5</span>
-            <span class="tool-icon">CSS3</span>
-            <span class="tool-icon">JavaScript</span>
-            <span class="tool-icon">Java</span>
-            <span class="tool-icon">Linux</span>
-            <span class="tool-icon">MySQL</span>
-            <span class="tool-icon">Python</span>
-            <span class="tool-icon">Unity</span>
-            </section>
-    </div>
+    </main>
 
     <footer>
-        <p>&copy; 2024 中村喜一. All rights reserved.</p>
-        </footer>
+        <p>&copy; 2025 中村喜一. All rights reserved.</p>
+    </footer>
 
+    <script>
+        // Simple Navbar Toggle for mobile
+        const navToggler = document.querySelector('.nav-toggler');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggler.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            navToggler.classList.toggle('active');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    navToggler.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
